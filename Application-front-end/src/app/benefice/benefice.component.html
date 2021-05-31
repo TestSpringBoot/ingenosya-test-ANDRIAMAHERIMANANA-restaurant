@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="topnav" id="myTopnav">
+  <a routerLink="/ingredient">Repas</a>
+  <a routerLink="/gestionPrix" >Gestion de prix</a>
+  <a routerLink="/benefice" routerLinkActive="active">Benefice</a>
+  <a routerLink="/exportPdf" >Menue et formule repas</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<h2>Listes des bénefices pour les quantités de chaque repas</h2>
+<table id="customers"  >
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Benefices</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let produit of produits" >
+        <tr >
+              <td>{{produit.nomProduit}}</td>
+              <td> {{calculBenefice(produit.prix, produit.nbrProduitEnVente, produit.depenseUnitaire)}} </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="topnav" id="myTopnav">
+  <a routerLink="/ingredient">Repas</a>
+  <a routerLink="/gestionPrix" routerLinkActive="active">Gestion de prix</a>
+  <a routerLink="/benefice" >Benefice</a>
+  <a routerLink="/exportPdf" >Menue et formule repas</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<h3>Gestions des prix de produits</h3>
+
+<div class="col-md-3 text-right">
+  <button ><a routerLink="/addVente" >ajouter vente de produit</a></button>
+</div>
+<table  id="customers" >
+  <tr>
+    <th>Produit</th>
+    <th>Nombre prêt à vendre</th>
+	<th>Prix unitaire</th>
+  </tr>
+  <tr *ngFor="let produit of produits">
+	<td>{{produit.nomProduit}}</td>
+    <td>{{produit.nbrProduitEnVente}}</td>
+    <td>{{produit.prix}}</td>
+  </tr>
+</table>

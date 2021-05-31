@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="topnav" id="myTopnav">
+  <a routerLink="/ingredient">Repas</a>
+  <a routerLink="/gestionPrix" >Gestion de prix</a>
+  <a routerLink="/benefice" >Benefice</a>
+  <a routerLink="/exportPdf" >Menue et formule repas</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div >
+    Les éléments pour fournir {{quantite_necessaire}}
+    {{ idProduit == 1 ? 'Hamburger' : '' }}
+    {{ idProduit == 2 ? 'Frite' : ''  }}
+    {{ idProduit == 3 ? 'Yaourt' : ''  }} 
+</div>
+
+<table id="customers"  >
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>quantité necessaire</th>
+        <th>Quantité manquant</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let ingr of ingredient" [ngSwitch]= "ingr.nomIngredient">
+        <tr *ngSwitchCase= "'pain burger'">
+              <td>{{ingr.nomIngredient}}</td>
+              <td> {{quantite_necessaire * hamburger.pain_burger}} </td>
+              <td> {{ verifier_quantite(ingr.stockIngredient, hamburger.pain_burger, quantite_necessaire) }} </td>
+        </tr>
+        <tr *ngSwitchCase= "'tomates'">
+            <td>{{ingr.nomIngredient}}</td>
+            <td> {{quantite_necessaire * hamburger.tomate}} </td>
+            <td> {{ verifier_quantite(ingr.stockIngredient, hamburger.tomate, quantite_necessaire) }} </td>
+        </tr>
+        <tr *ngSwitchCase= "'oeuf'">
+            <td>{{ingr.nomIngredient}}</td>
+            <td> {{quantite_necessaire * hamburger.oeuf}} </td>
+            <td> {{ verifier_quantite(ingr.stockIngredient, hamburger.oeuf, quantite_necessaire) }} </td>
+      </tr>
+      <tr *ngSwitchCase= "'salade'">
+          <td>{{ingr.nomIngredient}}</td>
+          <td> {{quantite_necessaire * hamburger.salade}} </td>
+          <td> {{ verifier_quantite(ingr.stockIngredient, hamburger.salade, quantite_necessaire) }} </td>
+      </tr>
+      <tr *ngSwitchCase= "'oignon'">
+        <td>{{ingr.nomIngredient}}</td>
+        <td> {{quantite_necessaire * hamburger.oignon}} </td>
+        <td> {{ verifier_quantite(ingr.stockIngredient, hamburger.oignon, quantite_necessaire) }} </td>
+    </tr>
+    <tr *ngSwitchCase= "'mortadelle'">
+        <td>{{ingr.nomIngredient}}</td>
+        <td> {{quantite_necessaire * hamburger.mortadelle}} g</td>
+        <td> {{ verifier_quantite(ingr.stockIngredient, hamburger.mortadelle, quantite_necessaire) }} </td>
+    </tr>
+    <tr *ngSwitchCase= "'pommes de terre'">
+        <td>{{ingr.nomIngredient}}</td>
+        <td> {{quantite_necessaire * frite.pomme_de_terre}} kg</td>
+        <td> {{ verifier_quantite(ingr.stockIngredient, frite.pomme_de_terre, quantite_necessaire) }}</td>
+    </tr>
+    <tr *ngSwitchCase= "'lait'">
+        <td>{{ingr.nomIngredient}}</td>
+        <td> {{quantite_necessaire * yaourt.lait}} </td>
+        <td> {{ verifier_quantite(ingr.stockIngredient, yaourt.lait, quantite_necessaire) }} </td>
+    </tr>
+    <tr *ngSwitchCase= "'sucre'">
+        <td>{{ingr.nomIngredient}}</td>
+        <td> {{quantite_necessaire * yaourt.sucre}} </td>
+        <td> {{ verifier_quantite(ingr.stockIngredient, yaourt.sucre, quantite_necessaire) }}</td>
+    </tr>
+    <tr *ngSwitchCase= "'yaourt nature'">
+        <td>{{ingr.nomIngredient}}</td>
+        <td> {{quantite_necessaire * yaourt.yaourt_nature}} </td>
+        <td> {{ verifier_quantite(ingr.stockIngredient, yaourt.yaourt_nature, quantite_necessaire) }} </td>
+    </tr>
+    </tbody>
+  </table><br/>
+
+  <button (click)="save()"  [disabled]="validation != true" >valider la fabriquation</button>

@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="topnav" id="myTopnav">
+  <a routerLink="/ingredient" routerLinkActive="active">Repas</a>
+  <a routerLink="/gestionPrix" >Gestion de prix</a>
+  <a routerLink="/benefice" >Benefice</a>
+  <a routerLink="/exportPdf" >Menue et formule repas</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div>
+    <h2>Saisir repas</h2>
+    <div>
+        <p>{{repas_interface.repas1}}: <input [(ngModel)]="repas_selectionner" (ngModelChange)="valueHasChanged()" value="1" type="radio" ></p>
+            {{repas_interface.repas2}}: <input [(ngModel)]="repas_selectionner" (ngModelChange)="valueHasChanged()" value="2" type="radio" >
+            {{repas_interface.repas3}}: <input [(ngModel)]="repas_selectionner" (ngModelChange)="valueHasChanged()" value="3" type="radio" ><br/>
+           Quantité: <input [(ngModel)]="quantite_necessaire" (ngModelChange)="valueHasChanged()" type="number"><br/><br/>
+
+        <div class="col-md-3 text-right">
+            <button class="btn btn-primary btn-block" (click)="getRepas()">Visualiser les ingredients necessaires</button>
+          </div>
+    </div>
+</div>
+
