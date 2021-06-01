@@ -79,4 +79,4 @@
     </tbody>
   </table><br/>
 
-  <button (click)="save()"  [disabled]="validation != true" >valider la fabriquation</button>
+  <button (click)="save()" [ngClass]="{'disabled_button': !validation, 'default_button': validation }" [disabled]="validation != true" >valider la fabriquation</button>

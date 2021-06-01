@@ -42,3 +42,12 @@
 .button2 {
   background-color: #008cba;
 } /* Blue */
+
+.disabled_button {
+  background-color: #dedede !important;
+  cursor: not-allowed !important;
+}
+
+.default_button {
+  background-color: #859791 !important;
+}

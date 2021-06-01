@@ -12,6 +12,7 @@ import { GestionPrixComponent } from './gestion-prix/gestion-prix.component';
 import { AddVenteComponent } from './add-vente/add-vente.component';
 import { BeneficeComponent } from './benefice/benefice.component';
 import { FormuleIngredientComponent } from './formule-ingredient/formule-ingredient.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormuleIngredientComponent } from './formule-ingredient/formule-ingredi
     BrowserModule,
     AppRoutingModule,
   	FormsModule,
-	  HttpClientModule
+	  HttpClientModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -76,7 +76,7 @@ export class IngredientsListComponent implements OnInit {
     if (this.manquant < 0 ) {
       this.validation = false;
     }
-    return this.manquant < 0 ?   Math.abs(this.manquant) : 'complet'; 
+    return this.manquant < 0 ?   Math.abs(this.manquant) : ''; 
   }
 
   valueHasChanged() {
@@ -88,7 +88,10 @@ export class IngredientsListComponent implements OnInit {
     this.produit.id = this.idProduit;
     this.produit.nbrProduitEnVente = this.quantite_necessaire;
     console.log(this.produit);
-    this.productService.addProduit(this.produit).subscribe();
+    this.productService.addProduit(this.produit).subscribe( data => {
+      this.router.navigateByUrl('/gestionPrix')
+    });
+
   }
 
  }

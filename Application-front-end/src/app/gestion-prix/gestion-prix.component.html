@@ -10,20 +10,29 @@
   </a>
 </div>
 
-<h3>Gestions des prix de produits</h3>
+<h3 style="text-align: center;">Gestions des prix de produits</h3>
+<br/>
 
-<div class="col-md-3 text-right">
+
+<div style="position: relative; left: 25%;">
   <button ><a routerLink="/addVente" >ajouter vente de produit</a></button>
 </div>
-<table  id="customers" >
-  <tr>
-    <th>Produit</th>
-    <th>Nombre prêt à vendre</th>
-	<th>Prix unitaire</th>
-  </tr>
-  <tr *ngFor="let produit of produits">
-	<td>{{produit.nomProduit}}</td>
-    <td>{{produit.nbrProduitEnVente}}</td>
-    <td>{{produit.prix}}</td>
-  </tr>
-</table>
+<br/>
+<div style="width: 50%; position: relative; left: 25%;">
+  <table id="customers" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+    <tr>
+      <th>Produit</th>
+      <th>Nombre prêt à vendre</th>
+    <th>Prix unitaire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produit of produits">
+    <td>{{produit.nomProduit}}</td>
+      <td>{{produit.nbrProduitEnVente}}</td>
+      <td>{{produit.prix}}</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
