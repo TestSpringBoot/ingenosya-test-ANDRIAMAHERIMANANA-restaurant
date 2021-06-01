@@ -9,7 +9,7 @@ import { BeneficeComponent } from './benefice/benefice.component';
 import { FormuleIngredientComponent } from './formule-ingredient/formule-ingredient.component';
 
 const routes: Routes = [
-	//{ path: '', redirectTo: '/products', pathMatch: 'full' },
+	{ path: '', redirectTo: '/ingredient', pathMatch: 'full' },
 	{ path: 'ingredient', component: IngredientsDetailsComponent},
 	{ path : 'listeIngredient', component: IngredientsListComponent},
 	{ path: 'gestionPrix', component: GestionPrixComponent},

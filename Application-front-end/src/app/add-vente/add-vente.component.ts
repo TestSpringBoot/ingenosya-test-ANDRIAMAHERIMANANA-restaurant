@@ -17,6 +17,8 @@ export class AddVenteComponent implements OnInit {
   produits: Produit[] = [];
   public totalPrix: number = 0;
   public prixFourniture = 10000;
+  public quantiteValide: boolean = false;
+  public produit_trouve: Produit;
 
   constructor(private route: ActivatedRoute,
               private venteService: VenteService, 
@@ -39,6 +41,16 @@ export class AddVenteComponent implements OnInit {
   getProducts(): void {
     this.productService.getProducts().subscribe(produits => this.produits = produits);
     console.log(this.produits);
+  }
+
+  valueHasChanged() {
+console.log("function called");
+console.log(this.vente);
+    this.produit_trouve = this.produits.find( value => {
+      return value.id == this.vente.idProduit;
+    });
+    this.produit_trouve && this.vente && this.vente.quantite > this.produit_trouve.nbrProduitEnVente  ? this.quantiteValide = true : this.quantiteValide = false;
+console.log(this.produit_trouve);
   }
 
 }

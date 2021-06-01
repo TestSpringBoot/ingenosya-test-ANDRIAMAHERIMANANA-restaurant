@@ -10,7 +10,7 @@
       </p>
       
       <p>
-          quantité: <input [(ngModel)]="vente.quantite" placeholder="quantite à vendre" required>
+          quantité: <input [(ngModel)]="vente.quantite" [ngClass]="{'red_input': quantiteValide, 'default_input': !quantiteValide }" (ngModelChange)="valueHasChanged()" placeholder="quantite à vendre" required> <span *ngIf="quantiteValide" style="color: red;"> Veuillez choissir un quantité inferieur ou egale à {{ produit_trouve.nbrProduitEnVente }} </span>
       </p>   
       Le prix des objets necessaire est 10.000 ar y compris:
       <ul>
@@ -20,7 +20,7 @@
       </ul>
     </div>
     <!-- <button (click)="save()">Save</button> -->
-    <button onclick="document.getElementById('id01').style.display='block'" >vendre</button>
+    <button [disabled]="quantiteValide == true" [ngClass]="{'disabled_button': quantiteValide, 'default_button': !quantiteValide }" onclick="document.getElementById('id01').style.display='block'" >vendre</button>
   </div>
 
   
