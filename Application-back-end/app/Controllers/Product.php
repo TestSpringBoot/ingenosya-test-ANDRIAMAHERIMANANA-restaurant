@@ -30,7 +30,7 @@ class Product extends ResourceController {
         $nbrProduitEnVente = $produit['nbrProduitEnVente'] + $json->nbrProduitEnVente;
 
             $data = array(
-                'nbrProduitEnVente' => $nbrProduitEnVente
+                'nbrProduitEnVente' => $nbrProduitEnVente,
             );
 
 

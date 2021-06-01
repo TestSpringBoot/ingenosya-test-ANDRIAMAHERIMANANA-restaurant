@@ -43,15 +43,27 @@ class Vente extends ResourceController
         $quantite = $json->quantite;
         $produitActuel = $this->produitModel->find($produit);
 
+        $this->produitModel = new ProduitModel();
+
+        $nouveauNbrProd = $produitActuel['nbrProduitEnVente'] - $quantite;
+
         $prixTotal = ($produitActuel['prix'] * $quantite) + $prixFournitures;
 
-        $data = array(
+        $dataToInsert = array(
             'idProduit' => $produit,
             'quantite' => $quantite,
             'prixTotal' =>$prixTotal,
         );
 
-        $this->model->insert($data);
+        $datatoUpdate = array(
+          'nbrProduitEnVente' => $nouveauNbrProd
+        );
+
+
+
+        $this->model->insert($dataToInsert);
+
+        $this->produitModel->update($produit, $datatoUpdate);
 
         $response = array(
             'status'   => 201,

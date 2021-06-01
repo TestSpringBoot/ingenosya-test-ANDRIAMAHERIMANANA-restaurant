@@ -1,3 +1,6 @@
+/* création de la base de donnée */
+CREATE DATABASE restaurant;
+
 /* creation de la table produit */
 CREATE TABLE `produit` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
