@@ -1,4 +1,4 @@
-Premièrement, il faut lancer la requête conception.sql situé dans Apllication-front-end/
+Premièrement, il faut lancer la requête conception.sql situé dans Apllication-back-end/
 Dans cette requête, il crée une table restaurant et insert des données dans la table produit
 et ingredient dont le champ nbrProduitEnVente du produit est 0 au démarrage .
 
